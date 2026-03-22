@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, request, render_template
-from database.db_setup import db, SalesData, ChurnData, OperationalMetrics, AIInsights
+from Database.dp_setup import db, SalesData, ChurnData, OperationalMetrics, AIInsights
 from models.predictor import SalesPredictor, ChurnPredictor
 from models.summarizer import BusinessSummarizer
 from config import Config
@@ -270,7 +270,7 @@ def get_sales_forecast():
 def refresh_data():
     """Refreshing sample data (for demo purposes)"""
     try:
-        from database.db_setup import generate_sample_data
+        from Database.dp_setup import generate_sample_data
         
         # Clear existing data
         db.session.query(SalesData).delete()
